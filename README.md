@@ -5,6 +5,8 @@ Sheet Counter is a Streamlit application designed to count the number of sheets 
 
 Want a demo? Check out the [Streamlit app](https://sheet-counter.streamlit.app/).
 
+Want a detailed understanding of the code? Check out the [Project Report](https://github.com/soumyadeepbose/sheet-counter/blob/main/Project%20Report.pdf).
+
 ## Approach
 The code first reads the input video frame by frame and increases contrast to make the horizontal lines more visible. The frame is then passed to the Canny Edge Detector to detect the edges, and then Probabilistic Hough Line Transform is used to get the lines representing the edges. The code then filters out the non-horizontal lines and then using the y coordinates of mid-points of the lines, DBSCAN performs clustering to group lines on similar y coordinates as distinct sheets. The number of clusters is then counted to get the number of sheets in the frame. 
 
