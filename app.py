@@ -73,8 +73,8 @@ def main():
     st.markdown("<h1 style='text-align: center;'>Sheet Counter 🔍</h1>", unsafe_allow_html=True)
 
     st.markdown("""So you want to know how many sheets are there in your video/image? 🤔
-                You are at the right place! Just upload your video/image and let the magic happen! 🎩✨
-                If you wanna see the code for this app, visit the [repo]().""")
+                You are at the right place! Just upload your video/image and let the magic happen! 🎩
+                If you wanna see the code for this app, visit the [repo](https://github.com/soumyadeepbose/sheet-counter). ✨""")
 
     uploaded_file = st.file_uploader("Choose a video (with sheets of course 😉)...", type=["mp4", "avi", "mov", ".jpg", ".jpeg", ".png"])
     if uploaded_file is not None:
