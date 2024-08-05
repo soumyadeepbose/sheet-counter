@@ -37,7 +37,7 @@ The code first reads the input video frame by frame and increases contrast to ma
 4. The frame with the most sheets detected will be displayed as a new frame.
 
 ## Screenshots
-![Tkinter App](readme_images/tkinter_app.png "Tkinter App")
+![Tkinter App](readme_images/tkinter_app.png)
 
 ## Main Requirements
 - [Streamlit](https://streamlit.io/)
