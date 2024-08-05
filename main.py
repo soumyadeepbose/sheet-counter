@@ -6,7 +6,6 @@ from sklearn.cluster import DBSCAN
 import cv2
 from PIL import Image, ImageTk
 import numpy as np
-import statistics
 
 class VideoPlayer:
     def __init__(self, root):

@@ -3,7 +3,6 @@ from sklearn.cluster import DBSCAN
 from PIL import Image
 import cv2
 import numpy as np
-import statistics
 import os
 
 if "most_sheets_frame" not in st.session_state:
