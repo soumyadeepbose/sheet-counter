@@ -3,6 +3,8 @@
 ## Overview
 Sheet Counter is a Streamlit application designed to count the number of sheets in a given video or image. The app uses computer vision techniques to detect and count horizontal lines, which represent sheets in the input media. There are two versions of the app available: one built using Streamlit and the other using Tkinter. The Streamlit app is more user-friendly and provides a better user experience, while the Tkinter app is more lightweight and can be used for quick testing. I developed the tkinter app first, and then I decided to build a more user-friendly version using Streamlit. 😅
 
+Want a demo? Check out the [Streamlit app](https://sheet-counter.streamlit.app/).
+
 ## Approach
 The code first reads the input video frame by frame and increases contrast to make the horizontal lines more visible. The frame is then passed to the Canny Edge Detector to detect the edges, and then Probabilistic Hough Line Transform is used to get the lines representing the edges. The code then filters out the non-horizontal lines and then using the y coordinates of mid-points of the lines, DBSCAN performs clustering to group lines on similar y coordinates as distinct sheets. The number of clusters is then counted to get the number of sheets in the frame. 
 
