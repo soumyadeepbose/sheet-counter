@@ -33,12 +33,6 @@ Sheet Counter is a Streamlit application designed to count the number of sheets 
 4. Click the "Process Video" button to start the sheet counting process.
 5. View the results and the frame with the most sheets detected.
 
-## Contributing
-Contributions are welcome! Please open an issue or submit a pull request for any improvements or bug fixes.
-
-## License
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
 ## Acknowledgements
 - [Streamlit](https://streamlit.io/)
 - [OpenCV](https://opencv.org/)
