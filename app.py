@@ -70,7 +70,7 @@ def get_sheet_count(image):
                 return num_clusters, line_image
 
 def main():
-    st.markdown("<h1 style='text-align: center;'> Sheet Counter 🔍</h1>", unsafe_allow_html=True)
+    st.markdown("<h1 style='text-align: center;'>Sheet Counter 🔍</h1>", unsafe_allow_html=True)
 
     st.markdown("""So you want to know how many sheets are there in your video/image? 🤔
                 You are at the right place! Just upload your video/image and let the magic happen! 🎩
