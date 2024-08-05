@@ -1,4 +1,4 @@
-# Sheet Counter
+# Sheet Counter 🔍
 
 ## Overview
 Sheet Counter is a Streamlit application designed to count the number of sheets in a given video or image. The app uses computer vision techniques to detect and count horizontal lines, which represent sheets in the input media.
