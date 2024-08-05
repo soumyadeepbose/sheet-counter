@@ -3,7 +3,7 @@
 ## Overview
 Sheet Counter is a Streamlit application designed to count the number of sheets in a given video or image. The app uses computer vision techniques to detect and count horizontal lines, which represent sheets in the input media. There are two versions of the app available: one built using Streamlit and the other using Tkinter. The Streamlit app is more user-friendly and provides a better user experience, while the Tkinter app is more lightweight and can be used for quick testing. I developed the tkinter app first, and then I decided to build a more user-friendly version using Streamlit. 😅
 
-Want a demo? Check out the [Streamlit app](https://sheet-counter.streamlit.app/).
+Want a demo? Check out the [Streamlit app](https://sheet-counter.streamlit.app/) or the [demo video](https://drive.google.com/file/d/1iuCpSSXVi8JWQmguo9e3fU4CisvFo2FJ/view?usp=sharing).
 
 Want a detailed understanding of the code? Check out the [Project Report](https://github.com/soumyadeepbose/sheet-counter/blob/main/Project%20Report.pdf).
 
