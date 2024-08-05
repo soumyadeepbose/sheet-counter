@@ -12,7 +12,7 @@ Sheet Counter is a Streamlit application designed to count the number of sheets 
 ## Installation
 1. Clone the repository:
     ```sh
-    git clone <repository-url>
+    git clone https://github.com/soumyadeepbose/sheet-counter.git
     ```
 2. Navigate to the project directory:
     ```sh
@@ -44,3 +44,6 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 - [OpenCV](https://opencv.org/)
 - [scikit-learn](https://scikit-learn.org/)
 - [Pillow](https://python-pillow.org/)
+
+## Author
+- [Soumyadeep Bose 😊](https://www.linkedin.com/in/soumyadeepbose)

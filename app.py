@@ -80,6 +80,7 @@ def main():
 
     st.markdown("""So you want to know how many sheets are there in your video/image? 🤔</br>
                 You are at the right place! Just upload your video/image and let the magic happen! 🎩✨</br>
+                If you wanna see the code for this app, visit the [repo]().""")
 
     uploaded_file = st.file_uploader("Choose a video (with sheets of course 😉)...", type=["mp4", "avi", "mov", ".jpg", ".jpeg", ".png"])
     if uploaded_file is not None:
