@@ -10,21 +10,19 @@ if "most_sheets_frame" not in st.session_state:
 
 def preprocess_frame(frame):
 
-        # Increase contrast
-        alpha = 1.25  # Contrast control (1.0-3.0)
-        beta = 0    # Brightness control (0-100)
-        adjusted = cv2.convertScaleAbs(frame, alpha=alpha, beta=beta)
+        # Adjusting contrast
+        alpha = 1.25
+        adjusted = cv2.convertScaleAbs(frame, alpha=alpha, beta=0)
 
         return adjusted
 
 def get_sheet_count(image):
-        # Preprocess the frame
         preprocessed_image = preprocess_frame(image)
 
         # Edge detection using Canny edge detector
         edges = cv2.Canny(preprocessed_image, 25, 100, apertureSize=3)  # 50, 150
 
-        # Detect lines using Probabilistic Hough Transform
+        # Detecting lines using PHT
         lines = cv2.HoughLinesP(edges, rho=1, theta=np.pi/180, threshold=100, minLineLength=100, maxLineGap=10)
         # minLineLength=100
         # threshold=100
@@ -33,7 +31,7 @@ def get_sheet_count(image):
         if lines is None:
             print('Number of sheets detected: 0')
         else:
-            # Filter out non-horizontal lines
+            # Filtering out non-horizontal lines
             horizontal_lines = []
             for line in lines:
                 x1, y1, x2, y2 = line[0]
@@ -43,7 +41,7 @@ def get_sheet_count(image):
             if not horizontal_lines:
                 return 0
             else:
-                # Convert lines to a format suitable for DBSCAN (use the y-coordinate of the midpoint of each line)
+                # y-coordinate of the midpoint of each line for DBSCAN
                 line_midpoints = []
                 for line in horizontal_lines:
                     x1, y1, x2, y2 = line
@@ -59,13 +57,10 @@ def get_sheet_count(image):
                 # else:
                 #     self.frame_number += 1
 
-                # Use DBSCAN to cluster the line midpoints
+                # DBSCAN to cluster the line midpoints
                 clustering = DBSCAN(eps=2, min_samples=2).fit(line_midpoints) # eps=10
-
-                # Get the number of unique clusters
                 num_clusters = len(set(clustering.labels_)) - (1 if -1 in clustering.labels_ else 0)
 
-                # Draw the detected lines on the image for visualization
                 line_image = np.copy(image)
                 for line in horizontal_lines:
                     x1, y1, x2, y2 = line
@@ -77,8 +72,8 @@ def get_sheet_count(image):
 def main():
     st.markdown("<h1 style='text-align: center;'>Sheet Counter 🔍</h1>", unsafe_allow_html=True)
 
-    st.markdown("""So you want to know how many sheets are there in your video/image? 🤔</br>
-                You are at the right place! Just upload your video/image and let the magic happen! 🎩✨</br>
+    st.markdown("""So you want to know how many sheets are there in your video/image? 🤔
+                You are at the right place! Just upload your video/image and let the magic happen! 🎩✨
                 If you wanna see the code for this app, visit the [repo]().""")
 
     uploaded_file = st.file_uploader("Choose a video (with sheets of course 😉)...", type=["mp4", "avi", "mov", ".jpg", ".jpeg", ".png"])
@@ -86,7 +81,7 @@ def main():
         file_type = uploaded_file.type
         if 'video' in file_type:
 
-            # Savign the uploaded file to fixed location
+            # Saving the uploaded file to fixed location
             input_path = os.path.join("uploaded_video.mp4")
             with open(input_path, "wb") as f:
                 f.write(uploaded_file.read())
