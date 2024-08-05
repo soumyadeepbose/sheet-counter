@@ -1,39 +1,45 @@
 # Sheet Counter 🔍
 
 ## Overview
-Sheet Counter is a Streamlit application designed to count the number of sheets in a given video or image. The app uses computer vision techniques to detect and count horizontal lines, which represent sheets in the input media.
+Sheet Counter is a Streamlit application designed to count the number of sheets in a given video or image. The app uses computer vision techniques to detect and count horizontal lines, which represent sheets in the input media. There are two versions of the app available: one built using Streamlit and the other using Tkinter. The Streamlit app is more user-friendly and provides a better user experience, while the Tkinter app is more lightweight and can be used for quick testing. I developed the tkinter app first, and then I decided to build a more user-friendly version using Streamlit. 😅
 
-## Features
-- Upload a video or image to the app.
-- Process the uploaded media to count the number of sheets.
-- Display the frame with the most sheets detected.
-- Supports various video formats (mp4, avi, mov) and image formats (jpg, jpeg, png).
+## Approach
+The code first reads the input video frame by frame and increases contrast to make the horizontal lines more visible. The frame is then passed to the Canny Edge Detector to detect the edges, and then Probabilistic Hough Line Transform is used to get the lines representing the edges. The code then filters out the non-horizontal lines and then using the y coordinates of mid-points of the lines, DBSCAN performs clustering to group lines on similar y coordinates as distinct sheets. The number of clusters is then counted to get the number of sheets in the frame. 
 
-## Installation
-1. Clone the repository:
+## Installation and Setup
+
+1. Clone the repository into a folder:
     ```sh
     git clone https://github.com/soumyadeepbose/sheet-counter.git
     ```
-2. Navigate to the project directory:
-    ```sh
-    cd <project-directory>
-    ```
-3. Install the required dependencies:
+2. Navigate to the project directory, and install the required dependencies:
     ```sh
     pip install -r requirements.txt
     ```
-
-## Usage
-1. Run the Streamlit app:
+3. Now run the streamlit app:
     ```sh
     streamlit run app.py
+4. Alternatively, you can run the app using the following command:
+    ```sh
+    python main.py
     ```
-2. Open your web browser and go to `http://localhost:8501`.
-3. Upload a video or image file.
-4. Click the "Process Video" button to start the sheet counting process.
-5. View the results and the frame with the most sheets detected.
 
-## Acknowledgements
+## Usage for Streamlit App
+1. Select the video or image file you want to upload.
+2. Click the "Process Video" button to start the sheet counting process.
+3. Grab a quick coffee and wait for the results to appear.
+3. View the result and the frame with the most sheets detected.
+
+## Usage for Tkinter App
+1. Click on the "Choose Video" button to select the video file you want to upload. Please note that you can't use the Tkinter app for image processing.
+2. Grab a quick coffee and wait a while.
+3. The sheet counter will be displayed in the right text area.
+4. The frame with the most sheets detected will be displayed as a new frame.
+
+## Screenshots
+![Tkinter App](readme_images/tkinter_app.png "Tkinter App")
+
+## Main Requirements
 - [Streamlit](https://streamlit.io/)
 - [OpenCV](https://opencv.org/)
 - [scikit-learn](https://scikit-learn.org/)
